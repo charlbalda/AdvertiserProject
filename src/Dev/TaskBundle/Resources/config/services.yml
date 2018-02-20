@@ -1,0 +1,4 @@
+services:
+#    dev_task.example:
+#        class: Dev\TaskBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

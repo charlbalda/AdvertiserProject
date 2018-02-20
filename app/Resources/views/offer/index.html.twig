@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Offers list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Applicationid</th>
+                <th>Country</th>
+                <th>Payout</th>
+                <th>Name</th>
+                <th>Platform</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for offer in offers %}
+            <tr>
+                <td><a href="{{ path('offer_show', { 'id': offer.id }) }}">{{ offer.id }}</a></td>
+                <td>{{ offer.applicationId }}</td>
+                <td>{{ offer.country }}</td>
+                <td>{{ offer.payout }}</td>
+                <td>{{ offer.name }}</td>
+                <td>{{ offer.platform }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('offer_show', { 'id': offer.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('offer_edit', { 'id': offer.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('offer_new') }}">Create a new offer</a>
+        </li>
+    </ul>
+{% endblock %}
